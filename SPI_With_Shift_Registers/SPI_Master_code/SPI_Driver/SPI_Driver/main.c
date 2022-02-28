@@ -17,9 +17,8 @@ int main()
 	while (1)
 	{
 		SET_BIT_HIGH(SPI_Port_Name, SS);
-		SPI_Master_Send(0x00);
+		data = SPI_Transceive(0xff);
 		SET_BIT_LOW(SPI_Port_Name, SS);
-		data = SPI_Master_receive();
 		_delay_ms(10);
 		
 		SET_BIT_LOW(B, EN);

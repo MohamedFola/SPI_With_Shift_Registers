@@ -106,7 +106,7 @@ void SPI_Init_Master(uint8_t Clk_Rate, uint8_t Data_Order, uint8_t Clk_Polarity,
 unsigned char SPI_Transceive(unsigned char Data)
 {
 	SPI_Data_Register = Data;                              // Load the Data to SPDR register
-	while(READ_BIT(SPI_Contorl_Register, SPIF) == 0);      // wait until the transmission is over
+	while(READ_BIT(SPI_Status_Register, SPIF) == 0);      // wait until the transmission is over
 	
 	return SPI_Data_Register;                              // Return the received Data
 }
